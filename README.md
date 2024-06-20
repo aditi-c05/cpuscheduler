@@ -6,11 +6,25 @@ Each algorithm has its own way of selecting the next process to run. For example
 Schedulers play a significant role in optimizing system performance by managing the execution of processes efficiently. They aim to reduce the waiting time of processes, improve system throughput, and ensure fairness in CPU allocation. 
 # Dependencies of the project
 the following are the dependencies-
-1) Use of Standard C++ Library.
-   #include <bits/stdc++.h>
-2) Use of Custom Header.
+1) Use of Standard C++ Libraries.
+iostream
+vector
+queue
+tuple
+algorithm
+cmath
+   
+2) Use of Local Header.
    #include "parser.h"
+3) Use of Global Constants and Variables
+Constants: Strings TRACE and SHOW_STATISTICS, and ALGORITHMS array.
+Global Variables: Arrays finishTime, turnAroundTime, normTurn, and timeline
 # How to Run the project
-To run this project the prereqsites we need are -
-1) Any c++ compiler like GCC (GNU Compiler Collection) or Microsoft Visual C++
-2) Text editors like Visual Studio Code
+Ensure Dependencies:
+Make sure you have a C++ compiler installed on your system (e.g., GCC , or Xcode for macOS).
+Ensure that your compiler supports C++11 or later, as the code uses features from these standards (like std::tuple, std::vector, etc.).
+
+Project Setup:
+Place all your source files (main.cpp, parser.h) in the same directory.
+
+Compile the Project:
