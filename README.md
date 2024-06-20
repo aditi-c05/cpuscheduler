@@ -10,3 +10,7 @@ the following are the dependencies-
    #include <bits/stdc++.h>
 2) Use of Custom Header.
    #include "parser.h"
+# How to Run the project
+To run this project the prereqsites we need are -
+1) Any c++ compiler like GCC (GNU Compiler Collection) or Microsoft Visual C++
+2) Text editors like Visual Studio Code
