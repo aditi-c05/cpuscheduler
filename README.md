@@ -75,7 +75,7 @@ Overall, working on a CPU scheduling simulation project is a hands-on way to dee
 
 # Resources
 The resources I used are-
-https://www.youtube.com/playlist?list=PLBlnK6fEyqRitWSE_AyyySWfhRgyA-rHk(for learning differnt algos)
+https://www.youtube.com/playlist?list=PLBlnK6fEyqRitWSE_AyyySWfhRgyA-rHk  (for learning differnt algos)
 
 https://github.com/yousefkotp/CPU-Scheduling-Algorithms?tab=readme-ov-file#installation( for learning of implementation of different algorithms)
 
