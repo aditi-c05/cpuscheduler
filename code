@@ -4,7 +4,7 @@
 #include <tuple>
 #include <algorithm>
 #include <cmath>
-#include "parser.h" // Assuming parser.h contains necessary declarations
+#include "parser.h" 
 
 using namespace std;
 
@@ -168,8 +168,7 @@ void printTimeline(int algorithmIndex) {
 
 /** Main Execution **/
 int main() {
-    parse(); // Assuming parse() reads input and fills processes vector
-
+    parse(); 
     for (int idx = 0; idx < (int)ALGORITHMS.size(); idx++) {
         clearTimeline();
         executeAlgorithm(ALGORITHMS[idx][0], ALGORITHMS[idx][1], operation);
