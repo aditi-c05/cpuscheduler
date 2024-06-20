@@ -1,0 +1,185 @@
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <tuple>
+#include <algorithm>
+#include <cmath>
+#include "parser.h" // Assuming parser.h contains necessary declarations
+
+using namespace std;
+
+/** Global Constants **/
+const string TRACE = "trace";
+const string SHOW_STATISTICS = "stats";
+const string ALGORITHMS[9] = {"", "FCFS", "RR-", "SPN", "SRT", "HRRN", "FB-1", "FB-2i", "AGING"};
+
+/** Function Declarations **/
+void clearTimeline();
+string getProcessName(const tuple<string, int, int> &process);
+int getArrivalTime(const tuple<string, int, int> &process);
+int getServiceTime(const tuple<string, int, int> &process);
+double calculateResponseRatio(int waitTime, int serviceTime);
+void fillInWaitTime();
+void firstComeFirstServe();
+void roundRobin(int originalQuantum);
+void shortestProcessNext();
+void shortestRemainingTime();
+void highestResponseRatioNext();
+void feedbackQ1();
+void feedbackQ2i();
+void aging(int originalQuantum);
+void printAlgorithm(int algorithmIndex);
+void printProcesses();
+void printArrivalTime();
+void printServiceTime();
+void printFinishTime();
+void printTurnAroundTime();
+void printNormTurn();
+void printStats(int algorithmIndex);
+void printTimeline(int algorithmIndex);
+void executeAlgorithm(char algorithmId, int quantum, string operation);
+
+/** Global Variables **/
+vector<tuple<string, int, int>> processes; // Assuming this is declared and filled in parse()
+int lastInstant = 100; // Example value, should be set appropriately
+int processCount = 0; // Assuming this is initialized and set appropriately
+char operation = ' '; // Example operation mode, should be set appropriately
+
+int finishTime[MAX_PROCESS];
+int turnAroundTime[MAX_PROCESS];
+double normTurn[MAX_PROCESS];
+char timeline[100][MAX_PROCESS];
+
+/** Comparator Functions **/
+bool sortByServiceTime(const tuple<string, int, int> &a, const tuple<string, int, int> &b) {
+    return getServiceTime(a) < getServiceTime(b);
+}
+
+bool sortByArrivalTime(const tuple<string, int, int> &a, const tuple<string, int, int> &b) {
+    return getArrivalTime(a) < getArrivalTime(b);
+}
+
+bool descendingByResponseRatio(const tuple<string, double, int> &a, const tuple<string, double, int> &b) {
+    return get<1>(a) > get<1>(b);
+}
+
+bool byPriorityLevel(const tuple<int, int, int> &a, const tuple<int, int, int> &b) {
+    if (get<0>(a) == get<0>(b))
+        return get<2>(a) > get<2>(b);
+    return get<0>(a) > get<0>(b);
+}
+
+/** Utility Functions **/
+void clearTimeline() {
+    for (int i = 0; i < lastInstant; i++)
+        for (int j = 0; j < processCount; j++)
+            timeline[i][j] = ' ';
+}
+
+string getProcessName(const tuple<string, int, int> &process) {
+    return get<0>(process);
+}
+
+int getArrivalTime(const tuple<string, int, int> &process) {
+    return get<1>(process);
+}
+
+int getServiceTime(const tuple<string, int, int> &process) {
+    return get<2>(process);
+}
+
+double calculateResponseRatio(int waitTime, int serviceTime) {
+    return (waitTime + serviceTime) * 1.0 / serviceTime;
+}
+
+void fillInWaitTime() {
+    // Implement as needed based on requirements
+}
+
+/** Scheduling Algorithms **/
+void firstComeFirstServe() {
+    // Implement FCFS scheduling algorithm
+}
+
+void roundRobin(int originalQuantum) {
+    // Implement Round Robin scheduling algorithm
+}
+
+void shortestProcessNext() {
+    // Implement SPN scheduling algorithm
+}
+
+void shortestRemainingTime() {
+    // Implement SRT scheduling algorithm
+}
+
+void highestResponseRatioNext() {
+    // Implement HRRN scheduling algorithm
+}
+
+void feedbackQ1() {
+    // Implement FB-1 scheduling algorithm
+}
+
+void feedbackQ2i() {
+    // Implement FB-2i scheduling algorithm
+}
+
+void aging(int originalQuantum) {
+    // Implement AGING scheduling algorithm
+}
+
+/** Print Functions **/
+void printAlgorithm(int algorithmIndex) {
+    // Print selected algorithm details
+}
+
+void printProcesses() {
+    // Print process names
+}
+
+void printArrivalTime() {
+    // Print arrival times
+}
+
+void printServiceTime() {
+    // Print service times
+}
+
+void printFinishTime() {
+    // Print finish times
+}
+
+void printTurnAroundTime() {
+    // Print turnaround times
+}
+
+void printNormTurn() {
+    // Print normalized turnaround times
+}
+
+void printStats(int algorithmIndex) {
+    // Print statistics based on selected algorithm
+}
+
+void printTimeline(int algorithmIndex) {
+    // Print timeline for the selected algorithm
+}
+
+/** Main Execution **/
+int main() {
+    parse(); // Assuming parse() reads input and fills processes vector
+
+    for (int idx = 0; idx < (int)ALGORITHMS.size(); idx++) {
+        clearTimeline();
+        executeAlgorithm(ALGORITHMS[idx][0], ALGORITHMS[idx][1], operation);
+        if (operation == TRACE)
+            printTimeline(idx);
+        else if (operation == SHOW_STATISTICS)
+            printStats(idx);
+        cout << "\n";
+    }
+
+    return 0;
+}
+
